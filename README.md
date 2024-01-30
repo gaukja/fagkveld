@@ -12,8 +12,6 @@ Legg til redirect URL. (Add a platform => SPA)
 
 - https://localhost:5001/oauth2-redirect.html
 
-Slå på Access tokens og ID tokens.
-
 ## Eksponer api'et.
 
 Expose an API => Add a scope
@@ -32,7 +30,7 @@ Legg inn verdier under områdende AzureAd og Swagger.
 
 ## Oppsett av pålogging fra Swagger
 
-Sett opp OAuth med implicit flow for å få Swagger til å logge på mot API'et.
+Sett opp OAuth med authorization code flow for å få Swagger til å logge på mot API'et.
 Pass på å få med Scopes, AuthorizationUrl og TokenUrl.
 
 Hint: https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration

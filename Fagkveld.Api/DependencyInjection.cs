@@ -1,5 +1,6 @@
 ﻿using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
+using System.Runtime;
 
 namespace Fagkveld.Api;
 
@@ -25,7 +26,17 @@ public static class DependencyInjection
                 {
                     // TODO: Sett opp pålogging mot api'et
                     // Hint: https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration
-                    //Implicit =
+                    AuthorizationCode = new OpenApiOAuthFlow
+                    {
+                        Scopes =
+                            {
+                                { configuration.GetSection("Swagger").GetValue<string>("ApiScope"), "API Access" }
+                            },
+                        AuthorizationUrl = new Uri(
+                                "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?prompt=select_account"),
+                        TokenUrl = new Uri(
+                                "https://login.microsoftonline.com/organizations/oauth2/v2.0/token"),
+                    }
                 }
             });
 

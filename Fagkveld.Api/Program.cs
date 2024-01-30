@@ -25,6 +25,7 @@ app.UseSwaggerUI(c =>
     c.OAuthAppName("Fagkveld Api");
     c.RoutePrefix = string.Empty;
     c.EnableDeepLinking();
+    c.OAuthUsePkce();
 });
 
 app.UseHttpsRedirection();
